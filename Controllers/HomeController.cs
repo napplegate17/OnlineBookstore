@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using OnlineBookstore.Models.ViewModels;
+
+//Nicholas Applegate, 1-3
 
 namespace OnlineBookstore.Controllers
 {
@@ -15,15 +18,31 @@ namespace OnlineBookstore.Controllers
 
         private iBookstoreRepository _repository;
 
+        public int PageSize = 5;
+
         public HomeController(ILogger<HomeController> logger, iBookstoreRepository repository)
         {
             _logger = logger;
             _repository = repository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            return View(_repository.Books);
+            //Dynamically add paging info
+            return View(new BookListViewModel
+            {
+                Books = _repository.Books
+                    .OrderBy(p => p.BookId)
+                    .Skip((page - 1) * PageSize)
+                    .Take(PageSize)
+                ,
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalNumItems = _repository.Books.Count()
+                }
+            });
         }
 
         public IActionResult Privacy()
