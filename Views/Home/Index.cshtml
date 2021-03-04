@@ -13,18 +13,9 @@
 
 @foreach (var x in Model.Books)
 {
-<div>
-    <h4>@x.Title</h4>
-    <p>Author: @x.AuthorFirstName @x.AuthorMiddleName @x.AuthorLastName</p>
-    <p>Publisher: @x.Publisher</p>
-    <p>ISBN: @x.ISBN</p>
-    <p>Classification: @x.Classification</p>
-    <p>Category: @x.Category</p>
-    <p>Price: @x.Price</p>
-    <p>Number of Pages: @x.NumberOfPages</p>
-</div>
+    <partial name="BookSummary" model="x" />
 }
 
 <!--Dynamically add paging info using tag helper-->
 
-<div page-model="@Model.PagingInfo" page-action="Index"></div>
+<div page-model="@Model.PagingInfo" page-action="Index" page-url-category="@Model.CurrentCategory"></div>

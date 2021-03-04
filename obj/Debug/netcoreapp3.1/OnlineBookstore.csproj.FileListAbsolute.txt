@@ -66,3 +66,5 @@ C:\Users\nickc\source\repos\OnlineBookstore\obj\Debug\netcoreapp3.1\OnlineBookst
 C:\Users\nickc\source\repos\OnlineBookstore\obj\Debug\netcoreapp3.1\OnlineBookstore.dll
 C:\Users\nickc\source\repos\OnlineBookstore\obj\Debug\netcoreapp3.1\OnlineBookstore.pdb
 C:\Users\nickc\source\repos\OnlineBookstore\obj\Debug\netcoreapp3.1\OnlineBookstore.genruntimeconfig.cache
+C:\Users\nickc\source\repos\OnlineBookstore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\BookSummary.cshtml.g.cs
+C:\Users\nickc\source\repos\OnlineBookstore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\NavigationMenu\Default.cshtml.g.cs

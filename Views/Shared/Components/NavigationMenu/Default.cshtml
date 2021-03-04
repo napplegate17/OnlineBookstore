@@ -1,0 +1,13 @@
+﻿<!--Nicholas Applegate, 1-3-->
+@model IEnumerable<string>
+
+<button><a asp-action="Index" asp-controller="Home" asp-route-category="">Home</a></button>
+
+<!--set up category selecter, dynamically change color when selected-->
+@foreach (string category in Model)
+{
+<button>
+    <a style=@(category == ViewBag.SelectedCat ? "color:green" : "color:blue")  asp-action="Index" asp-controller="Home" asp-route-category="@category"
+       asp-route-page="1">@category</a>
+</button>
+}
