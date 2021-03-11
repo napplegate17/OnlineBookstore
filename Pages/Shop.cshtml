@@ -1,0 +1,40 @@
+﻿@page
+@model OnlineBookstore.Pages.ShopModel
+@{
+}
+
+<!--Nicholas Applegate, 1-3-->
+
+<!--Set up view for cart, calculating subtotals and totals automatically-->
+
+<h2>Your Cart</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Book</th><th>Quantity</th><th>Price</th><th>Subtotal</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var line in Model.Cart.Lines)
+            {
+                <tr>
+                    <td>@line.Book.Title</td><td>@line.Quantity</td><td>$@line.Book.Price</td><td>@((line.Quantity * line.Book.Price).ToString("c"))</td>
+                </tr>
+            }
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td>Total:</td>
+            <td>@Model.Cart.ComputeTotalSum().ToString("c")</td>
+        </tr>
+    </tfoot>
+
+</table>
+
+<div>
+    <a href="@Model.ReturnUrl">Continue Shopping</a>
+</div>
+
